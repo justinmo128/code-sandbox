@@ -33,11 +33,11 @@ function judge() {
     let judgeNext = Math.floor(Math.random() * 9);
     judgeNext++;
 
-    // Check if number generated is same as previous two generated
+    // Check if the number generated is same as the previous two generated
     if (judgeNext != judgePrev0 && judgeNext != judgePrev1) {
         // Set innerHTML
         document.getElementById("judge-out").innerHTML = `${judgeNext}`;
-        // "Push back" the value
+        // "Push back" the previous values
         judgePrev0 = judgePrev1;
         judgePrev1 = judgeNext;
     } else {
