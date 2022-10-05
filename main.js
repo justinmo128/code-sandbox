@@ -58,7 +58,7 @@ function commandSelection() {
     commands[1] = Math.floor(Math.random() * 21);
     commands[2] = Math.floor(Math.random() * 21);
     commands[3] = Math.floor(Math.random() * 21);
-    if (allAreEqual(commands) === false) {
+    if (notEqual(commands)) {
         cmd1.innerHTML = `${commands[0]}`;
         cmd2.innerHTML = `${commands[1]}`;
         cmd3.innerHTML = `${commands[2]}`;
@@ -68,8 +68,8 @@ function commandSelection() {
     }
 }
 
-function allAreEqual(array) {
-    if (array[0] === array[1] || array[0] === array[2] || array[0] === array[3] || array[1] === array[2] || array[1] === array[3] || array[2] === array[3]) {
+function notEqual(array) {
+    if (array[0] != array[1] && array[0] != array[2] && array[0] != array[3] && array[1] != array[2] && array[1] != array[3] && array[2] != array[3]) {
         return true;
     } else {
         return false;
