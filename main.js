@@ -45,3 +45,33 @@ function judge() {
     }
 }
 
+document.getElementById("command-selection").addEventListener("click", commandSelection);
+
+let cmd1 = document.getElementById("cmd1");
+let cmd2 = document.getElementById("cmd2");
+let cmd3 = document.getElementById("cmd3");
+let cmd4 = document.getElementById("cmd4");
+
+function commandSelection() {
+    let commands = [];
+    commands[0] = Math.floor(Math.random() * 21);
+    commands[1] = Math.floor(Math.random() * 21);
+    commands[2] = Math.floor(Math.random() * 21);
+    commands[3] = Math.floor(Math.random() * 21);
+    if (allAreEqual(commands) === false) {
+        cmd1.innerHTML = `${commands[0]}`;
+        cmd2.innerHTML = `${commands[1]}`;
+        cmd3.innerHTML = `${commands[2]}`;
+        cmd4.innerHTML = `${commands[3]}`;
+    } else {
+        commandSelection();
+    }
+}
+
+function allAreEqual(array) {
+    if (array[0] === array[1] || array[0] === array[2] || array[0] === array[3] || array[1] === array[2] || array[1] === array[3] || array[2] === array[3]) {
+        return true;
+    } else {
+        return false;
+    }
+  }
