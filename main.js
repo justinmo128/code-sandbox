@@ -52,20 +52,34 @@ let cmd2 = document.getElementById("cmd2");
 let cmd3 = document.getElementById("cmd3");
 let cmd4 = document.getElementById("cmd4");
 
+let spellArray = ["Sizz", "Sizzle", "Bang", "Kaboom", "Snooze", "Flame Slash", "Kacrackle Slash", "Metal Slash", "Hatchet Man", "Whack", "Thwack", "Magic Burst", "Kamikazee", "Psyche Up", "Oomph", "Acceleratle", "Kaclang", "Bounce", "Heal", "Zoom", "Hocus Pocus"];
+
 function commandSelection() {
     let commands = [];
     commands[0] = Math.floor(Math.random() * 21);
     commands[1] = Math.floor(Math.random() * 21);
-    commands[2] = Math.floor(Math.random() * 21);
-    commands[3] = Math.floor(Math.random() * 21);
-    if (notEqual(commands)) {
-        cmd1.innerHTML = `${commands[0]}`;
-        cmd2.innerHTML = `${commands[1]}`;
-        cmd3.innerHTML = `${commands[2]}`;
-        cmd4.innerHTML = `${commands[3]}`;
+    if (commands[0] != commands[1]) {
+        commands[3] = Math.floor(Math.random() * 21);
+        if (commands[3] != commands[0]) {
+            commands[4] = Math.floor(Math.random() * 21);
+            if (commands[4] != commands[0]) {
+                commandName(commands);
+            }  else {
+                commandSelection();
+            }
+        } else {
+            commandSelection();
+        }
     } else {
         commandSelection();
     }
+    // commands[2] = Math.floor(Math.random() * 21);
+    // commands[3] = Math.floor(Math.random() * 21);
+    // if (notEqual(commands)) {
+    //     commandName(commands);
+    // } else {
+    //     commandSelection();
+    // }
 }
 
 function notEqual(array) {
@@ -74,4 +88,28 @@ function notEqual(array) {
     } else {
         return false;
     }
-  }
+}
+
+function typeCheck(array) {
+    for (i = 0; i < array.length; i++) {
+        for (j = 1; j < array.length; j++) {
+            if (array[i] == 0 && array[j] == 1 || array[i] == 2 && array[j] == 3 || array[i] == 9 && array[j] == 10) {
+                return false;
+            }
+        }
+    }
+}
+
+function commandName(array) {
+    for (i = 0; i < spellArray.length; i++) {
+        if (array[0] == i) {
+            document.getElementById("cmd1").innerHTML = spellArray[i]
+        } else if (array[1] == i) {
+            document.getElementById("cmd2").innerHTML = spellArray[i]
+        } else if (array[2] == i) {
+            document.getElementById("cmd3").innerHTML = spellArray[i]
+        } else if (array[3] == i) {
+            document.getElementById("cmd4").innerHTML = spellArray[i]
+        } 
+    }
+}
