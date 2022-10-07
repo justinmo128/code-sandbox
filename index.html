@@ -5,12 +5,15 @@
     <link rel="stylesheet" href="index.css">
     <!-- <script defer type="text/javascript" src="hi.json"></script> -->
     <script defer src="main.js"></script>
+    <script defer src="coinflip.js"></script>
+    <script defer src="generatecolours.js"></script>
+    <script defer src="judge.js"></script>
   </head>
   
   <body>
     <h1>Code Sandbox</h1>
     <p><button id="coinflip">Flip a coin</button></p>
-    <p id="flip-out"></p>
+    <p id="flip-out">-</p>
     <p><button id="randomcolor">Generate colours</button></p>
     <div class="grid-container">
         <div class="grid-item"></div>
@@ -86,10 +89,15 @@
     <p id="judge-out">1</p>
     <p><button id="command-selection">Command Selection</button></p>
     <p>
-      <span id="cmd1"></span><br>
-      <span id="cmd2"></span><br>
-      <span id="cmd3"></span><br>
-      <span id="cmd4"></span><br>
+      <span id="cmdname0">-</span><br>
+      <span id="cmdname1">-</span><br>
+      <span id="cmdname2">-</span><br>
+      <span id="cmdname3">-</span><br>
     </p>
+    <div class="box">
+      <input type="text" id="eighttext"><br>
+      <img id="eightball" src="img/8ball.png" alt="Magic 8 Ball">
+      <p id="eightout0">-</p>
+    </div>
   </body>
 </html>

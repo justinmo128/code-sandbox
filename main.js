@@ -1,50 +1,4 @@
-document.getElementById("coinflip").addEventListener("click", flipACoin)
-function flipACoin() {
-    let num = Math.floor(Math.random() * 2);
-    let coin;
-
-    if (num == 0) {
-        coin = "heads";
-    } else {
-        coin = "tails";
-    }
-
-    document.getElementById("flip-out").innerHTML = coin;
-}
-
-document.getElementById("randomcolor").addEventListener("click", colorGen)
-function colorGen() {
-    let boxes = document.getElementsByClassName("grid-item")
-
-    for (let i = 0; i < boxes.length; i++) {
-        let r = Math.floor(Math.random() * 256);
-        let g = Math.floor(Math.random() * 256);
-        let b = Math.floor(Math.random() * 256);
-        boxes[i].style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    }
-}
-
-document.getElementById("judge").addEventListener("click", judge)
-
-let judgePrev0 = 0;
-let judgePrev1 = 0;
-function judge() {
-    // Get number from 1 to 9
-    let judgeNext = Math.floor(Math.random() * 9);
-    judgeNext++;
-
-    // Check if the number generated is different from the previous two
-    if (judgeNext != judgePrev0 && judgeNext != judgePrev1) {
-        // Set innerHTML
-        document.getElementById("judge-out").innerHTML = `${judgeNext}`;
-        // "Push back" the previous values
-        judgePrev0 = judgePrev1;
-        judgePrev1 = judgeNext;
-    } else {
-        judge();
-    }
-}
-
+// COMMAND SELECTION
 document.getElementById("command-selection").addEventListener("click", commandSelection);
 
 let cmd1 = document.getElementById("cmd1");
@@ -58,28 +12,14 @@ function commandSelection() {
     let commands = [];
     commands[0] = Math.floor(Math.random() * 21);
     commands[1] = Math.floor(Math.random() * 21);
-    if (commands[0] != commands[1]) {
-        commands[3] = Math.floor(Math.random() * 21);
-        if (commands[3] != commands[0]) {
-            commands[4] = Math.floor(Math.random() * 21);
-            if (commands[4] != commands[0]) {
-                commandName(commands);
-            }  else {
-                commandSelection();
-            }
-        } else {
-            commandSelection();
-        }
+    commands[2] = Math.floor(Math.random() * 21);
+    commands[3] = Math.floor(Math.random() * 21);
+    let idName = "cmdname";
+    if (notEqual(commands) && typeCheck(commands)) {
+        commandName(commands, spellArray, idName);
     } else {
         commandSelection();
     }
-    // commands[2] = Math.floor(Math.random() * 21);
-    // commands[3] = Math.floor(Math.random() * 21);
-    // if (notEqual(commands)) {
-    //     commandName(commands);
-    // } else {
-    //     commandSelection();
-    // }
 }
 
 function notEqual(array) {
@@ -92,24 +32,70 @@ function notEqual(array) {
 
 function typeCheck(array) {
     for (i = 0; i < array.length; i++) {
-        for (j = 1; j < array.length; j++) {
-            if (array[i] == 0 && array[j] == 1 || array[i] == 2 && array[j] == 3 || array[i] == 9 && array[j] == 10) {
-                return false;
+        if (array[i] == 0 || array[i] == 2 || array[i] == 9) {
+            for (j = 0; j < array.length; j++) {
+                if (array[j] == array[i] + 1) {return false;}
+            }
+        }
+    }
+    return true;
+}
+
+// USED IN BOTH COMMAND SELECTION AND MAGIC 8 BALL
+function commandName(array, arrayNames, idName) {
+    for (i = 0; i < arrayNames.length; i++) {
+        for (j = 0; j < array.length; j++) {
+            if (array[j] == i) {
+                document.getElementById(idName+j).innerHTML = arrayNames[i];
             }
         }
     }
 }
 
-function commandName(array) {
-    for (i = 0; i < spellArray.length; i++) {
-        if (array[0] == i) {
-            document.getElementById("cmd1").innerHTML = spellArray[i]
-        } else if (array[1] == i) {
-            document.getElementById("cmd2").innerHTML = spellArray[i]
-        } else if (array[2] == i) {
-            document.getElementById("cmd3").innerHTML = spellArray[i]
-        } else if (array[3] == i) {
-            document.getElementById("cmd4").innerHTML = spellArray[i]
-        } 
+// MAGIC 8-BALL
+document.getElementById("eightball").addEventListener("click", magicEight);
+
+let ballOutArray = ["It is certain.", "It is decidedly so.", "Without a doubt.", "Yes definitely.", "You may rely on it.", "As I see it, yes.", "Most likely.", "Outlook good.", "Yes.", "Signs point to yes.", "Reply hazy, try again.", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Very doubtful."]
+
+function magicEight() {
+    let input = document.getElementById("eighttext").value.toLowerCase();
+    let randNum = []
+    randNum[0] = Math.floor(Math.random() * 20);
+    let idReal = document.getElementById("eightout0");
+    let idName = "eightout";
+
+    if (input == "hi" || input == "jellobj") {
+        idReal.innerHTML = "Hello!";
+    } else if (input == "") {
+        idReal.innerHTML = "Please input a question.";
+    } else if (input == "do you love me?" || input == "does anybody love me?") {
+        idReal.innerHTML = "lol";
+    } else if (input == "my husband is walter white, yo?") {
+        idReal.innerHTML = "He told me everything\.
+        Seriously\?
+        That's right\.
+        And just so you know m\y
+        brother-in-law is a DEA agent\.
+        And I will not hesitate to call him\.
+        Not if I have to. Understood\?
+        This is your one and only warning\.
+        Do not sell marijuana to my husband\.
+        Okay\.
+        I mean it\.
+        Don't call our house again\.
+        You stay away from him, o\r
+        you'll be one sorry individual\.
+        You got me\?
+        I think so, yeah. No more marijuana\.
+        I can dig it\.
+        You can dig it. Wonderful\.
+        (Skyler starts to leave\)
+        Not that it's any of my business\,
+        but you might wanna conside\r
+        a different line of work\.
+        
+        Okay\."
+    } else {
+        commandName(randNum, ballOutArray, idName);
     }
 }
