@@ -64,10 +64,10 @@ function magicEight() {
     let idReal = document.getElementById("eightout0");
     let idName = "eightout";
 
-    if (input == "hi" || input == "jellobj") {
-        idReal.innerHTML = "Hello!";
-    } else if (input == "") {
+    if (input == "") {
         idReal.innerHTML = "Please input a question.";
+    } else if (input == "hi" || input == "jellobj") {
+        idReal.innerHTML = "Hello!";
     } else if (input == "do you love me?" || input == "does anybody love me?") {
         idReal.innerHTML = "lol";
     } else if (input == "my husband is walter white, yo?") {
