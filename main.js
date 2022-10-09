@@ -71,30 +71,7 @@ function magicEight() {
     } else if (input == "do you love me?" || input == "does anybody love me?") {
         idReal.innerHTML = "lol";
     } else if (input == "my husband is walter white, yo?") {
-        idReal.innerHTML = "He told me everything\.
-        Seriously\?
-        That's right\.
-        And just so you know m\y
-        brother-in-law is a DEA agent\.
-        And I will not hesitate to call him\.
-        Not if I have to. Understood\?
-        This is your one and only warning\.
-        Do not sell marijuana to my husband\.
-        Okay\.
-        I mean it\.
-        Don't call our house again\.
-        You stay away from him, o\r
-        you'll be one sorry individual\.
-        You got me\?
-        I think so, yeah. No more marijuana\.
-        I can dig it\.
-        You can dig it. Wonderful\.
-        (Skyler starts to leave\)
-        Not that it's any of my business\,
-        but you might wanna conside\r
-        a different line of work\.
-        
-        Okay\."
+        idReal.innerHTML = "He told me everything.<br>Seriously?<br>That's right.<br>And just so you know my brother-in-law is a DEA agent.<br>And I will not hesitate to call him.<br>Not if I have to. Understood?<br>This is your one and only warning. Do not sell marijuana to my husband.<br>Okay?<br>I mean it. Don't call our house again.<br>You stay way from him or you'll be one sorry individual.<br>You got me?<br>I think so, yeah. No more marijuana. I can dig it.<br>You can dig it. Wonderful.<br>(Skyler starts to leave)<br>Not that it's any of my business, but you might wanna consider a different line of work.<br>Okay."
     } else {
         commandName(randNum, ballOutArray, idName);
     }
