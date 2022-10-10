@@ -23,11 +23,13 @@ function commandSelection() {
 }
 
 function notEqual(array) {
-    if (array[0] != array[1] && array[0] != array[2] && array[0] != array[3] && array[1] != array[2] && array[1] != array[3] && array[2] != array[3]) {
-        return true;
-    } else {
-        return false;
+    array.sort();
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] == array[i - 1]) {
+            return false;
+        }
     }
+    return true;
 }
 
 function typeCheck(array) {
