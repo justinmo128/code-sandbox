@@ -6,7 +6,7 @@ function startGame() {
     // Create new canvas
     myGameArea.start();
     // Add GamePieces
-    myGamePiece = new component(10, 10, "red", 50, 120);
+    myGamePiece = new component(10, 10, "red", 120, 120);
     // Add obstacles
     myObstacle = new component(10, 200, "green", 300, 120);
     // Bottom limit and top limit
@@ -105,8 +105,8 @@ function updateGameArea() {
         minHeight = 20;
         maxHeight = 200;
         height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
-        minGap = 100;
-        maxGap = 200;
+        minGap = 70;
+        maxGap = 100;
         gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
         myObstacles.push(new component(10, height, "green", x, 0));
         myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
