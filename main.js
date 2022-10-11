@@ -65,7 +65,6 @@ function magicEight() {
     randNum[0] = Math.floor(Math.random() * 20);
     let idReal = document.getElementById("eightout0");
     let idName = "eightout";
-
     if (input == "") {
         idReal.innerHTML = "Please input a question.";
     } else if (input == "hi" || input == "jellobj") {
