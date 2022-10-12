@@ -33,6 +33,12 @@ var myGameArea = {
         window.addEventListener('mouseup', function (e) {
             myGamePiece.mouseheld = false;
         })
+        window.addEventListener('keydown', function (e) {
+            myGamePiece.mouseheld = true;
+        })
+        window.addEventListener('keyup', function (e) {
+            myGamePiece.mouseheld = false;
+        })
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
