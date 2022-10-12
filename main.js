@@ -1,3 +1,15 @@
+// Ding!
+document.getElementById("ding").addEventListener("click", ding);
+let dingCount = 0;
+function ding() {
+    if (dingCount < 100) {
+        console.log("Ding!")
+        dingCount++;
+    } else {
+        console.log("HAAAAAAAAAAHH")
+    }
+}
+
 // COMMAND SELECTION
 document.getElementById("command-selection").addEventListener("click", commandSelection);
 

@@ -2,17 +2,24 @@
 <html>
   <head>
     <title>Code Sandbox</title>
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="index.css">
     <!-- <script defer type="text/javascript" src="hi.json"></script> -->
     <script defer src="main.js"></script>
-    <script defer src="coinflip.js"></script>
-    <script defer src="generatecolours.js"></script>
-    <script defer src="judge.js"></script>
-    <script defer src="gaming.js"></script>
+    <script defer src="index-coinflip.js"></script>
+    <script defer src="index-generatecolours.js"></script>
+    <script defer src="index-judge.js"></script>
+    <script defer src="index-canvas.js"></script>
   </head>
   
   <body>
     <h1>Code Sandbox</h1>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="gaming.html">Gaming</a>
+      <a href="gaming2.html">Gaming 2</a>
+    </div>
+    <p><button id="ding">Ding!</button></p>
     <p><button id="coinflip">Flip a coin</button></p>
     <p id="flip-out">-</p>
     <p><button id="randomcolor">Generate colours</button></p>
@@ -100,6 +107,15 @@
       <img id="eightball" src="img/8ball.png" alt="Magic 8 Ball">
       <p id="eightout0">-</p>
     </div>
-    <p><button id="start-game">Start Game</button></p>
+    <canvas id="myCanvas"></canvas>
+    <button id="solidRect">Solid Rectangle</button>
+    <button id="solidText">Solid Text</button>
+    <button id="outlineText">Outline Text</button>
+    <button id="linebtn">Line</button>
+    <button id="solidTriangle">Solid Triangle</button>
+    <button id="outlineCircle">Outline Circle</button>
+    <!-- Load image -->
+    <img id="html-logo" src="img/BetterCallSaul.gif" style="display: none">
+    <button id="drawAnImage">Draw an image</button>
   </body>
 </html>

@@ -22,7 +22,7 @@ var myGameArea = {
         this.canvas.height = 270;
         this.canvas.style.cursor = "none"; //hide the original cursor
         this.context = this.canvas.getContext("2d");
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        document.body.appendChild(this.canvas);
         // Runs updateGameArea 60 times per second (every 16.6ms)
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 1000/60);

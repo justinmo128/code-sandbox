@@ -1,0 +1,9 @@
+html {
+    font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+body {
+    width: 600px;
+    margin: 0 auto 100px;
+    text-align: center;
+}
