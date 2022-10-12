@@ -76,6 +76,5 @@ document.getElementById("drawAnImage").addEventListener("click", drawAnImage)
 function drawAnImage() {
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     let htmlImg = document.getElementById("html-logo");
-    ctx.drawImage(htmlImg, 50, 50);
-    ctx.drawImage(htmlImg, 200, 50, 40, 40); //(img, x, y, w, h)
+    ctx.drawImage(htmlImg, 0, 0, 600, 400); //(img, x, y, w, h)
 }
