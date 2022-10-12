@@ -1,12 +1,22 @@
 // Ding!
+let dingSound = document.getElementById("dingSound");
+let gusSound = document.getElementById("gusSound");
+let randNum = Math.random();
+if (randNum <= 1) {
+    dingSound = document.getElementById("pizzaSound");
+    gusSound = document.getElementById("slurpSound");
+}
+
 document.getElementById("ding").addEventListener("click", ding);
 let dingCount = 0;
 function ding() {
-    if (dingCount < 30) {
+    if (dingCount <= 42) {
         console.log("Ding!")
+        dingSound.cloneNode(true).play();
         dingCount++;
     } else {
         console.log("HAAAAAAAAAAHH")
+        gusSound.play();
         dingCount = 0;
     }
 }
