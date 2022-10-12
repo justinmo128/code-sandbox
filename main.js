@@ -2,11 +2,12 @@
 document.getElementById("ding").addEventListener("click", ding);
 let dingCount = 0;
 function ding() {
-    if (dingCount < 100) {
+    if (dingCount < 30) {
         console.log("Ding!")
         dingCount++;
     } else {
         console.log("HAAAAAAAAAAHH")
+        dingCount = 0;
     }
 }
 
