@@ -2,7 +2,7 @@
 let dingSound = document.getElementById("dingSound");
 let gusSound = document.getElementById("gusSound");
 let randNum = Math.random();
-if (randNum < 0.05) {
+if (randNum < 0.1) {
     dingSound = document.getElementById("pizzaSound");
     gusSound = document.getElementById("slurpSound");
 }
