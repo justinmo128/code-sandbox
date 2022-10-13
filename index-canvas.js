@@ -4,6 +4,11 @@ let ctx = cnv.getContext("2d");
 cnv.width = 600;
 cnv.height = 400;
 
+function resetSize() {
+    cnv.width = 600;
+    cnv.height = 400;
+}
+
 {/*
 <button id="solidTriangle">Solid Triangle</button>
 <button id="outlineCircle">Outline Circle</button>
@@ -12,6 +17,7 @@ cnv.height = 400;
 // Draw filled in rectangle
 document.getElementById("solidRect").addEventListener("click", solidRect)
 function solidRect() {
+    resetSize();
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     ctx.fillStyle = "blue";
     ctx.fillRect(50, 50, 100, 60); //(x, y, width, height)
@@ -20,6 +26,7 @@ function solidRect() {
 // Draw filled in text
 document.getElementById("solidText").addEventListener("click", solidText)
 function solidText() {
+    resetSize();
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     ctx.font = "30px Arial";
     ctx.fillStyle = "Green";
@@ -29,6 +36,7 @@ function solidText() {
 // Draw outlined text
 document.getElementById("outlineText").addEventListener("click", outlineText)
 function outlineText() {
+    resetSize();
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     ctx.font = "36px Times";
     ctx.lineWidth = 1;
@@ -39,6 +47,7 @@ function outlineText() {
 // Draw a line
 document.getElementById("linebtn").addEventListener("click", drawALine)
 function drawALine() {
+    resetSize();
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     ctx.lineWidth = 5;
     ctx.strokeStyle = "rgb(0, 0, 255)";
@@ -51,6 +60,7 @@ function drawALine() {
 // Draw filled in triangle
 document.getElementById("solidTriangle").addEventListener("click", solidTriangle)
 function solidTriangle() {
+    resetSize();
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     ctx.fillStyle = "#00FF00";
     ctx.beginPath();
@@ -63,18 +73,102 @@ function solidTriangle() {
 // Draw outlined circle
 document.getElementById("outlineCircle").addEventListener("click", outlineCircle)
 function outlineCircle() {
+    resetSize();
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     ctx.lineWidth = 3;
     ctx.strokeStyle = "blue";
     ctx.beginPath();
-    ctx.arc(150, 150, 100, 0, 2 * Math.PI); //(x, y, radius, startAngle, endAngle, counterclockwise)
+    ctx.arc(150, 150, 100, 0, 2 * Math.PI); //(x, y, radius, startAngle, endAngle, counterclockwise), angles are in radians
     ctx.stroke(); // Draw line
 }
 
 // Draw an image
 document.getElementById("drawAnImage").addEventListener("click", drawAnImage)
 function drawAnImage() {
+    resetSize();
     ctx.clearRect(0, 0, cnv.width, cnv.height);
     let htmlImg = document.getElementById("html-logo");
     ctx.drawImage(htmlImg, 0, 0, 600, 400); //(img, x, y, w, h)
+}
+
+// Draw Sunrise Assignment
+document.getElementById("sunrise").addEventListener("click", drawSunrise)
+function drawSunrise() {
+    //Set Canvas Size
+    cnv.width = 400;
+    cnv.height = 400;
+    //Sky
+    ctx.fillStyle = "blue";
+    ctx.fillRect(0, 0, 400, 400);
+    //Sun
+    ctx.fillStyle = "red";
+    ctx.beginPath();
+    ctx.arc(200, 300, 15, 0, 2 * Math.PI);
+    ctx.fill();
+    //Grass
+    ctx.fillStyle = "#008000";
+    ctx.fillRect(0, 300, 400, 100);
+    //Clouds
+    let cloudImg = document.getElementById("cloudImg");
+    ctx.drawImage(cloudImg, 130, 120);
+    ctx.drawImage(cloudImg, 170, 100);
+}
+
+// Draw Cityscape Assignment
+document.getElementById("cityscape").addEventListener("click", drawCityscape)
+function drawCityscape() {
+    //Set Canvas Size
+    cnv.width = 300;
+    cnv.height = 650;
+    
+    // BLUE BACKGROUND
+    ctx.fillStyle = "blue";
+    ctx.fillRect(0, 0, cnv.width, cnv.height);
+    
+    // DRAW LEFT BUILDING
+    ctx.fillStyle = "black";
+    // Building Base
+    ctx.fillRect(0, 350, 150, 300);
+    // Middle Section
+    ctx.fillRect(20, 200, 110, 150);
+    // Triangle Top
+    ctx.beginPath();
+    ctx.moveTo(20, 200);
+    ctx.lineTo(130, 200);
+    ctx.lineTo(130, 100);
+    ctx.fill();
+    
+    // DRAW RIGHT BUILDING
+    ctx.fillStyle = "black";
+    // Building Base
+    ctx.fillRect(150, 100, 150, 550);
+    // Medium Top
+    ctx.fillRect(170, 40, 110, 60);
+    // Small Top
+    ctx.fillRect(190, 20, 70, 20);
+
+    // Actual assignment (Draw windows using loops)
+    ctx.fillStyle = "white";
+    let yVal = 200;
+    let xVal = 40;
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 6; j++) {
+            ctx.fillRect(xVal, yVal, 15, 10)
+            yVal += 25
+        }
+        xVal += 22;
+        yVal = 200;
+    }
+    xVal = 20;
+    yVal = 370;
+    for (let i = 0; i < 6; i++) {
+        ctx.fillRect(xVal, yVal, 110, 25)
+        yVal += 45;
+    }
+    xVal = 170;
+    yVal = 120;
+    for (let i = 0; i < 5; i++) {
+        ctx.fillRect(xVal, yVal, 10, 500)
+        xVal += 25;
+    }
 }
