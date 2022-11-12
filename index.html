@@ -3,13 +3,11 @@
   <head>
     <title>Code Sandbox</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="index.css">
     <!-- <script defer type="text/javascript" src="hi.json"></script> -->
-    <script defer src="main.js"></script>
-    <script defer src="index-coinflip.js"></script>
-    <script defer src="index-generatecolours.js"></script>
-    <script defer src="index-judge.js"></script>
-    <script defer src="index-canvas.js"></script>
+    <script defer src="index/index.js"></script>
+    <script defer src="index/coinflip.js"></script>
+    <script defer src="index/generatecolours.js"></script>
+    <script defer src="index/judge.js"></script>
   </head>
   
   <body>
@@ -18,7 +16,10 @@
       <a href="index.html">Home</a>
       <a href="gaming.html">Gaming</a>
       <a href="gaming2.html">Gaming 2</a>
+      <a href="canvas.html">Canvas</a>
+      <a href="windyday.html">Windy Day Assignment</a>
     </div>
+    
     <p><button id="ding">Ding!</button></p>
     <audio id="dingSound" src="snd/ding.mp3" type="audio/mp3" preload="auto" style="display: none;"></audio>
     <audio id="gusSound" src="snd/gusscream.mp3" type="audio/mp3" preload="auto" style="display: none;"></audio>
@@ -28,70 +29,70 @@
     <p id="flip-out">-</p>
     <p><button id="randomcolor">Generate colours</button></p>
     <div class="grid-container">
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
     </div>
     <p><button id="judge">Judge (Melee/Brawl)</button></p>
     <p>Always generates a random number from 1 to 9.
@@ -110,21 +111,6 @@
       <input type="text" id="eighttext"><br>
       <img id="eightball" src="img/8ball.png" alt="Magic 8 Ball">
       <p id="eightout0">-</p>
-    </div>
-    <canvas id="myCanvas"></canvas>
-    <div>
-      <button id="solidRect">Solid Rectangle</button>
-      <button id="solidText">Solid Text</button>
-      <button id="outlineText">Outline Text</button>
-      <button id="linebtn">Line</button>
-      <button id="solidTriangle">Solid Triangle</button>
-      <button id="outlineCircle">Outline Circle</button>
-      <button id="drawAnImage">Draw an image</button>
-      <button id="sunrise">Draw Sunrise Assignment</button>
-      <button id="cityscape">Draw Cityscape Assignment</button>
-      <!-- Load images -->
-      <img id="cloudImg" src="img/cloth-cloud.png" style="display: none">
-      <img id="html-logo" src="img/BetterCallSaul.gif" style="display: none">
     </div>
   </body>
 </html>

@@ -172,3 +172,94 @@ function drawCityscape() {
         xVal += 25;
     }
 }
+
+//Animation Basic
+let xDraw = 100;
+let frameCountDraw = 0;
+
+document.getElementById("draw").addEventListener("click", draw)
+function draw() {
+    resetSize();
+    ctx.clearRect(0, 0, cnv.width, cnv.height);
+    // UPDATE ELEMENTS ON CANVAS
+    frameCountDraw++;
+
+    // Animate if frameCount is less than 120
+    // FPS is usually around 60 (so 120 frames == 2 seconds)
+    // if (frameCount < 360) {
+    //     x++;
+    // }
+
+    // Animate if x is less than 400
+    if (xDraw < 400) {
+        xDraw++;
+    }
+
+    // Reset animation if x > 300
+    if (xDraw > 300) {
+        xDraw = 100;
+    }
+
+    // DRAW CANVAS
+    ctx.fillStyle = "white"
+    ctx.fillRect(0, 0, cnv.width, cnv.height); // Background
+
+    ctx.fillStyle = "green";
+    ctx.fillRect(xDraw, 100, 50, 50); // Rectangle
+
+    // REQUEST ANIMATION FRAME
+    requestAnimationFrame(draw);
+}
+
+// Animate Sunrise Assignment
+let sunY = 300;
+let sunRadius = 15;
+let sunGreen = 0;
+let sunCloud1X = 130;
+let sunCloud2X = 170;
+let frameCount = 0;
+
+document.getElementById("anim-sunrise").addEventListener("click", resetSunrise)
+function resetSunrise() {
+    sunY = 300;
+    sunRadius = 15;
+    sunGreen = 0;
+    sunCloud1X = 130;
+    sunCloud2X = 170;
+    frameCount = 0;
+    animSunrise();
+}
+
+function animSunrise() {
+    frameCount++;
+    //Set Canvas Size
+    cnv.width = 400;
+    cnv.height = 400;
+    //Sky
+    ctx.fillStyle = "blue";
+    ctx.fillRect(0, 0, 400, 400);
+    //Sun
+    ctx.fillStyle = `rgb(255, ${sunGreen}, 0)`;
+    ctx.beginPath();
+    ctx.arc(200, sunY, sunRadius, 0, 2 * Math.PI);
+    ctx.fill();
+    if (frameCount <= 240) {
+        sunY--;
+        sunRadius += 0.25;
+        sunGreen++;
+        sunCloud1X--;
+        sunCloud2X++;
+    }
+    //Grass
+    ctx.fillStyle = "#008000";
+    ctx.fillRect(0, 300, 400, 100);
+    //Clouds
+    let cloudImg = document.getElementById("cloudImg");
+    ctx.drawImage(cloudImg, sunCloud1X, 120);
+    ctx.drawImage(cloudImg, sunCloud2X, 100);
+
+    //Request Animation Frame
+    if (frameCount <= 240) {
+        requestAnimationFrame(animSunrise);
+    }
+}
