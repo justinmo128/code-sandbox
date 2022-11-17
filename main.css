@@ -39,3 +39,7 @@ canvas {
     background-color: #f1f1f1;
     margin-top: 10px;
 }
+
+#cloudimg, #html-logo, .no-display {
+    display: none;
+}

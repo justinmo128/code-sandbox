@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
     <title>Code Sandbox</title>
     <link rel="stylesheet" href="main.css">
-    <!-- <script defer type="text/javascript" src="hi.json"></script> -->
     <script defer src="index/index.js"></script>
     <script defer src="index/coinflip.js"></script>
     <script defer src="index/generatecolours.js"></script>
@@ -21,10 +21,10 @@
     </div>
     
     <p><button id="ding">Ding!</button></p>
-    <audio id="dingSound" src="snd/ding.mp3" type="audio/mp3" preload="auto" style="display: none;"></audio>
-    <audio id="gusSound" src="snd/gusscream.mp3" type="audio/mp3" preload="auto" style="display: none;"></audio>
-    <audio id="pizzaSound" src="snd/pizza.mp3" type="audio/mp3" preload="auto" style="display: none;"></audio>
-    <audio id="slurpSound" src="snd/slurp.mp3" type="audio/mp3" preload="auto" style="display: none;"></audio>
+    <audio class="no-display" id="dingSound" src="snd/ding.mp3" type="audio/mp3" preload="auto"></audio>
+    <audio class="no-display" id="gusSound" src="snd/gusscream.mp3" type="audio/mp3" preload="auto"></audio>
+    <audio class="no-display" id="pizzaSound" src="snd/pizza.mp3" type="audio/mp3" preload="auto"></audio>
+    <audio class="no-display" id="slurpSound" src="snd/slurp.mp3" type="audio/mp3" preload="auto"></audio>
     <p><button id="coinflip">Flip a coin</button></p>
     <p id="flip-out">-</p>
     <p><button id="randomcolor">Generate colours</button></p>
@@ -108,7 +108,7 @@
       <span id="cmdname3">-</span><br>
     </p>
     <div class="box">
-      <input type="text" id="eighttext"><br>
+      <input type="text" id="eighttext" title="Input your question"><br>
       <img id="eightball" src="img/8ball.png" alt="Magic 8 Ball">
       <p id="eightout0">-</p>
     </div>
