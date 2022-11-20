@@ -100,3 +100,20 @@ function magicEight() {
         commandName(randNum, ballOutArray, idName);
     }
 }
+
+// Collatz conjecture
+document.getElementById("collatz").addEventListener("click", () =>{
+    let n = +document.getElementById("3n-number").value;
+    collatz(n);
+});
+function collatz(n) {
+    while (n != 1) {
+        console.log(n);
+        if (n % 2 == 0) {
+            n /= 2;
+        } else {
+            n = 3 * n + 1
+        }
+    }
+    console.log(1);
+}
